@@ -1,0 +1,21 @@
+{
+    "name": "zhulanov111/serializer",
+    "description": "Php library for serializing data of various objects into formats json and xml",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Konstantin Zhulanov",
+            "email": "zhulanov111@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/yaml": "^4.3@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zhulanov111\\Serializer\\": "src/",
+            "Zhulanov111\\Tests\\": "tests/"
+        }
+    }	
+}
