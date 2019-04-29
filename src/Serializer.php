@@ -25,7 +25,14 @@ final class Serializer implements SerializerInterface
                                     'all' => null];
 
 
-    public function serialize(object $object, EncoderInterface $encoder, $config = 'public')
+    /**
+     * @param object $object
+     * @param EncoderInterface $encoder
+     * @param string $config, allowed values: public, private, protected, 'all'
+     * @return mixed
+     * @throws NoValidConfigSerializer
+     */
+    public function serialize(object $object, EncoderInterface $encoder, string $config = 'public')
     {
         $this->object = $object;
 

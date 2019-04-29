@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 namespace Zhulanov111\Tests;
@@ -27,7 +28,7 @@ $yaml_data =  $serializer->serialize($post, $yaml_encoder, 'all');
 
 echo "\n <----Format data----> \n\n";
 
-print_r($yaml_data);
+print_r($json_data);
 
 
 
