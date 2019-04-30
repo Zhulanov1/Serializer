@@ -17,6 +17,8 @@ final class Serializer
 
     private $config;
 
+    const DEFAULT_CONFIG = 'public';
+
     const VALID_CONFIG_PARAMS = ['public' => \ReflectionProperty::IS_PUBLIC ,
                                  'protected' => \ReflectionProperty::IS_PROTECTED,
                                  'private' => \ReflectionProperty::IS_PRIVATE,
@@ -30,7 +32,7 @@ final class Serializer
      * @return mixed
      * @throws NoValidConfigSerializer
      */
-    public function serialize(object $object, EncoderInterface $encoder, string $config = self::VALID_CONFIG_PARAMS['public'])
+    public function serialize(object $object, EncoderInterface $encoder, string $config = self::DEFAULT_CONFIG )
     {
         $this->object = $object;
 
