@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: konstantin
- * Date: 29.04.19
- * Time: 1:11
- */
 
 namespace Zhulanov111\Tests\Classes;
 

@@ -4,7 +4,7 @@
 namespace Zhulanov111\Tests;
 
 
-require_once '../vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 use Zhulanov111\Tests\Classes\Post;
 use Zhulanov111\Tests\Classes\Comment;

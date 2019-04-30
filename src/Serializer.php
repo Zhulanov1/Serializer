@@ -3,13 +3,11 @@
 namespace Zhulanov111\Serializer;
 
 
-require_once '../vendor/autoload.php';
-
 use Zhulanov111\Serializer\Encoder\EncoderInterface;
 use Zhulanov111\Serializer\Exceptions\NoValidConfigSerializer;
 
 
-final class Serializer implements SerializerInterface
+final class Serializer
 {
     private $object;
 
@@ -19,10 +17,10 @@ final class Serializer implements SerializerInterface
 
     private $config;
 
-    private $valid_config_params = ['public' => \ReflectionProperty::IS_PUBLIC ,
-                                    'protected' => \ReflectionProperty::IS_PROTECTED,
-                                    'private' => \ReflectionProperty::IS_PRIVATE,
-                                    'all' => null];
+    const VALID_CONFIG_PARAMS = ['public' => \ReflectionProperty::IS_PUBLIC ,
+                                 'protected' => \ReflectionProperty::IS_PROTECTED,
+                                 'private' => \ReflectionProperty::IS_PRIVATE,
+                                 'all' => null];
 
 
     /**
@@ -32,7 +30,7 @@ final class Serializer implements SerializerInterface
      * @return mixed
      * @throws NoValidConfigSerializer
      */
-    public function serialize(object $object, EncoderInterface $encoder, string $config = 'public')
+    public function serialize(object $object, EncoderInterface $encoder, string $config = self::VALID_CONFIG_PARAMS['public'])
     {
         $this->object = $object;
 
@@ -49,8 +47,8 @@ final class Serializer implements SerializerInterface
     {
         $config = strtolower($config);
 
-        if (\key_exists($config, $this->valid_config_params)) {
-            $this->config = $this->valid_config_params[$config];
+        if (\key_exists($config, self::VALID_CONFIG_PARAMS)) {
+            $this->config = self::VALID_CONFIG_PARAMS[$config];
         } else {
             throw new NoValidConfigSerializer('no valid config');
         }
